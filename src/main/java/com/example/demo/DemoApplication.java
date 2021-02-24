@@ -41,20 +41,29 @@ public class DemoApplication {
             User admin = new User();
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("123456"));
+
+            // new role
             Role role = new Role();
             role.setId(1L);
+
             Role roleUser = new Role();
             roleUser.setId(2L);
+
             Set<Role> roles1 = new HashSet<>();
+
             roles1.add(role);
             roles1.add(roleUser);
+
             admin.setRoles(roles1);
             userService.save(admin);
+
             User user = new User();
             user.setUsername("user");
             user.setPassword(passwordEncoder.encode("123456"));
+
             role = new Role();
             role.setId(2L);
+
             roles1 = new HashSet<>();
             roles1.add(role);
             user.setRoles(roles1);
